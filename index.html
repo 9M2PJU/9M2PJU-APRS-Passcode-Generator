@@ -107,6 +107,46 @@
             font-size: 14px;
             color: #555;
         }
+
+        .embedding-tips {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 16px;
+            width: min(400px, 90%);
+        }
+
+        .embedding-tips h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .embedding-tips pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            overflow-x: auto;
+            word-wrap: break-word;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .embedding-tips code {
+            font-family: monospace;
+            word-wrap: break-word;
+        }
+
+        /* Ensure iframe is responsive on mobile */
+        iframe {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -122,14 +162,21 @@
         <input type="reset" id="reset" value="Reset" style="display: none;" onclick="window.location.reload();">
     </div>
 
+    <div class="embedding-tips">
+        <h3>How to Embed This Generator</h3>
+        <p>To embed the 9M2PJU APRS Passcode Generator on your website, use the following HTML code:</p>
+        <pre><code>&lt;iframe src="https://9m2pju.github.io/aprs-passcode-generator" width="600" height="400" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+        <p>Adjust the width and height as needed to fit your page layout.</p>
+    </div>
+
     <footer>
-    Made for you by <a href="https://hamradio.my" target="_blank">9M2PJU</a> 🥷
-    <br>
-    <br>
-    GitHub repository <a href="https://github.com/9M2PJU/aprs-passcode-generator" target="_blank">https://github.com/9M2PJU/aprs-passcode-generator</a>
-    <br>
-    <br>
-    This project is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0 License</a>.
+        Made for you by <a href="https://hamradio.my" target="_blank">9M2PJU</a> 🥷
+        <br>
+        <br>
+        GitHub repository <a href="https://github.com/9M2PJU/aprs-passcode-generator" target="_blank">https://github.com/9M2PJU/aprs-passcode-generator</a>
+        <br>
+        <br>
+        This project is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0 License</a>.
     </footer>
 
     <script>
