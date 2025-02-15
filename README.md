@@ -42,10 +42,10 @@ This project is licensed under the **AGPL 3.0 License**. See the [LICENSE](https
 5. Push to the branch (`git push origin feature-name`).
 6. Open a pull request.
 
-## Credits
-
-Made for you by [9M2PJU](https://hamradio.my) 🥷
-
 ## License
 
 This project is licensed under the [AGPL 3.0 License](https://www.gnu.org/licenses/agpl-3.0.html).
+
+## Thanks
+
+Made for you by [9M2PJU](https://hamradio.my) 🥷
