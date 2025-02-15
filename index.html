@@ -71,14 +71,14 @@
             color: #333;
         }
 
-        .result strong {
-            font-size: 1.2em;
+        .result .callsign {
             color: #007bff;
+            text-transform: uppercase;
         }
 
-        .result .callsign {
-            color: red; /* Set the callsign color to red */
-            text-transform: uppercase; /* Ensure the callsign is uppercase */
+        .result .passcode {
+            color: red;
+            font-size: 1.2em;
         }
 
         footer {
@@ -119,6 +119,10 @@
         Made for you by <a href="https://hamradio.my" target="_blank">9M2PJU</a> 🥷
     </footer>
 
+    <footer>
+        <small>This webpage is licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0 License</a>.</small>
+    </footer>
+
     <script>
         function aprsPasscode(callsign) {
             let realcall = callsign.split('-')[0].toUpperCase().substr(0, 10);
@@ -142,7 +146,7 @@
             if (callsign) {
                 let passcode = aprsPasscode(callsign);
                 document.getElementById("result").innerHTML = 
-                    `Passcode for <strong class="callsign">${callsign.toUpperCase()}</strong>: <strong>${passcode}</strong>`;
+                    `Passcode for <strong class="callsign">${callsign.toUpperCase()}</strong>: <strong class="passcode">${passcode}</strong>`;
             }
         });
     </script>
