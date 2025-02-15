@@ -9,6 +9,12 @@ This is a simple web-based tool to generate APRS passcodes based on the entered 
 - Display the passcode in red for visibility.
 - Clean, modern, and mobile-friendly design.
 
+## Technologies Used
+
+- **HTML**: The structure of the web page.
+- **CSS**: For styling and creating a responsive design.
+- **JavaScript**: Used for the APRS passcode algorithm and form functionality.
+
 ## License
 
 This project is licensed under the **AGPL 3.0 License**. See the [LICENSE](https://www.gnu.org/licenses/agpl-3.0.html) for more details.
