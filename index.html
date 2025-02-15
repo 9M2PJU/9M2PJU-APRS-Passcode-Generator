@@ -5,73 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>9M2PJU APRS Passcode Generator</title>
     <style>
-        /* Reset some basic styles for a cleaner look */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            background-color: #f4f7f9;
         }
 
         .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 480px;
+            max-width: 600px;
             padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
             text-align: center;
         }
 
-        h1 {
-            font-size: 1.8rem;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
         h2 {
-            font-size: 1.4rem;
             margin-bottom: 20px;
             color: #333;
+            font-size: 24px;
         }
 
         label {
-            font-size: 1rem;
-            color: #555;
+            font-size: 16px;
             margin-bottom: 10px;
+            color: #555;
             display: block;
+            text-align: left;
         }
 
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            font-size: 1rem;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 15px;
-            background-color: #f8f9fa;
+            font-size: 16px;
+            box-sizing: border-box;
         }
 
         input[type="submit"] {
-            width: 100%;
-            padding: 12px;
             background-color: #007bff;
             color: white;
+            padding: 12px 20px;
             border: none;
             border-radius: 5px;
-            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
@@ -80,17 +70,24 @@
 
         .result {
             margin-top: 20px;
-            font-size: 1.2rem;
+            text-align: center;
+            font-size: 18px;
             color: #333;
         }
 
-        .result .callsign {
+        .result strong {
+            font-size: 1.5em;
             color: red;
-            text-transform: uppercase;
-            font-weight: bold;
         }
 
         footer {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
             margin-top: 30px;
             font-size: 0.9rem;
             color: #555;
@@ -105,28 +102,33 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
+        footer small {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        @media screen and (max-width: 768px) {
             .container {
                 padding: 15px;
             }
 
-            h1 {
-                font-size: 1.5rem;
+            input[type="text"] {
+                padding: 8px;
+                font-size: 14px;
             }
 
-            input[type="text"],
             input[type="submit"] {
-                font-size: 1rem;
+                padding: 10px 15px;
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><a href="https://9m2pju.github.io/aprs-passcode-generator/" style="color: inherit; text-decoration: none;">9M2PJU APRS Passcode Generator</a></h1>
-        <h2>Enter your callsign to generate the passcode</h2>
-        
+        <h2><a href="https://9m2pju.github.io/aprs-passcode-generator/">9M2PJU APRS Passcode Generator</a></h2>
         <form id="form">
             <label for="callsign">Callsign:</label>
             <input type="text" name="callsign" id="callsign" required>
@@ -138,6 +140,7 @@
 
     <footer>
         Made for you by <a href="https://hamradio.my" target="_blank">9M2PJU</a> 🥷
+        <small>This webpage is licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0 License</a>.</small>
     </footer>
 
     <script>
@@ -163,7 +166,7 @@
             if (callsign) {
                 let passcode = aprsPasscode(callsign);
                 document.getElementById("result").innerHTML = 
-                    `Passcode for <span class="callsign">${callsign.toUpperCase()}</span>: <strong>${passcode}</strong>`;
+                    `Passcode for <strong>${callsign.toUpperCase()}</strong>: <strong>${passcode}</strong>`;
             }
         });
     </script>
