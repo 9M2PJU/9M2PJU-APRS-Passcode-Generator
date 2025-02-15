@@ -26,13 +26,6 @@ This project is licensed under the **AGPL 3.0 License**. See the [LICENSE](https
 3. Click the "Generate" button to get your APRS passcode.
 4. The passcode will be displayed below the form in red, and your callsign will be displayed in blue.
 
-## How to Embed
-
-You can easily embed the APRS Passcode Generator on your website or blog by adding the following HTML iframe code:
-
-```html
-<p><iframe src="https://9m2pju.github.io/aprs-passcode-generator" style="width: 100%; height: 500px; border: none;" allowfullscreen></
-
 ## Development
 
 ### Prerequisites
@@ -57,3 +50,9 @@ This project is licensed under the [AGPL 3.0 License](https://www.gnu.org/licens
 
 Made for you by [9M2PJU](https://hamradio.my) 🥷
 
+## How to Embed
+
+You can easily embed the APRS Passcode Generator on your website or blog by adding the following HTML iframe code:
+
+```html
+<p><iframe src="https://9m2pju.github.io/aprs-passcode-generator" style="width: 100%; height: 500px; border: none;" allowfullscreen></iframe></p>
