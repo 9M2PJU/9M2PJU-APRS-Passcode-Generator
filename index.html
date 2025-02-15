@@ -101,6 +101,12 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        .license {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -118,6 +124,7 @@
 
     <footer>
         Made for you by <a href="https://hamradio.my" target="_blank">9M2PJU</a> 🥷
+        <div class="license">This project is licensed under the AGPL 3.0 License</div>
     </footer>
 
     <script>
@@ -144,7 +151,7 @@
                 let passcode = aprsPasscode(callsign);
                 document.getElementById("result").innerHTML = 
                     `Passcode for <strong class="callsign">${callsign.toUpperCase()}</strong>: <strong style="color: red;">${passcode}</strong>`;
-                document.getElementById("reset").style.display = "inline-block"; // Show reset button
+                document.getElementById("reset").style.display = "inline-block";
             }
         });
     </script>
