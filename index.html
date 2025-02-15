@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9M2PJU APRS Passcode Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: min(400px, 90%);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .result strong {
+            font-size: 1.2em;
+            color: #007bff;
+        }
+
+        footer {
+            width: min(400px, 90%);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2><a href="https://passcode.infy.uk/">9M2PJU APRS Passcode Generator</a></h2>
+        <form id="form">
+            <label for="callsign">Callsign:</label>
+            <input type="text" name="callsign" id="callsign" required>
+            <input type="submit" value="Generate">
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <footer>
+        Made for you by <a href="https://hamradio.my" target="_blank">9M2PJU</a> 🥷
+    </footer>
+
+    <script>
+        function aprsPasscode(callsign) {
+            let realcall = callsign.split('-')[0].toUpperCase().substr(0, 10);
+            let hash = 0x73e2;
+            let len = realcall.length;
+
+            for (let i = 0; i < len; i++) {
+                hash ^= realcall.charCodeAt(i) << 8;
+                if (i + 1 < len) {
+                    hash ^= realcall.charCodeAt(i + 1);
+                }
+                i++;
+            }
+
+            return hash & 0x7fff;
+        }
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let callsign = document.getElementById("callsign").value.trim();
+            if (callsign) {
+                let passcode = aprsPasscode(callsign);
+                document.getElementById("result").innerHTML = 
+                    `Passcode for <strong>${callsign}</strong>: <strong>${passcode}</strong>`;
+            }
+        });
+    </script>
+</body>
+</html>
+
