@@ -23,7 +23,7 @@ The APRS passcode is a unique identifier used to authenticate and secure these t
 
 - Stripping any SSID (e.g., "-1") from the callsign.
 - Converting the callsign to uppercase.
-- Using bitwise XOR operations and shifting the ASCII values of the callsign, along with a constant value 073, to create a 16-bit passcode.
+- Using bitwise XOR operations and shifting the ASCII values of the callsign, along with a constant value 0x73, to create a 16-bit passcode.
 
 This passcode is used in several key areas:
 
