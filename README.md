@@ -73,4 +73,4 @@ Made for you by [9M2PJU](https://hamradio.my) and [JollyJolli](https://github.co
 You can easily embed the 9M2PJU APRS Passcode Generator on your website or blog by adding the following HTML iframe code, which you can adjust for width and height:
 
 ```html
-<p><iframe src="https://9m2pju.github.io/aprs-passcode-generator" style="width: 100%; height: 500px; border: none;" allowfullscreen></iframe></p>
+<p><iframe src="https://pass.hamradio.my" style="width: 100%; height: 500px; border: none;" allowfullscreen></iframe></p>
