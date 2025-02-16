@@ -3,183 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9M2PJU APRS Passcode Generator</title>
+    <title>APRS Passcode Generator | 9M2PJU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0052CC;
+            --primary-dark: #0747A6;
+            --secondary: #00875A;
+            --accent: #FF5630;
+            --background: #F4F5F7;
+            --surface: #FFFFFF;
+            --text-primary: #172B4D;
+            --text-secondary: #5E6C84;
+            --border: #DFE1E6;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: sans-serif;
-            margin: 20px;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
+            padding: 2rem 1rem;
+            gap: 2rem;
         }
 
         .container {
-            width: min(400px, 90%);
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            width: min(600px, 100%);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        h2 {
+        .container:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg), 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
-            color: #333;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-            color: #555;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         input[type="text"] {
-            width: calc(100% - 12px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        input[type="submit"], input[type="reset"] {
-            background-color: #007bff;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             width: 100%;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--surface);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: all 0.2s ease;
         }
 
-        input[type="submit"]:hover, input[type="reset"]:hover {
-            background-color: #0056b3;
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0,82,204,0.2);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            flex: 1;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            background: var(--border);
+            color: var(--text-primary);
+        }
+
+        .button-secondary:hover {
+            background: #C1C7D0;
+            transform: translateY(-2px);
         }
 
         .result {
-            margin-top: 20px;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #F8F9FA;
+            border-radius: var(--radius-md);
             text-align: center;
-            font-size: 18px;
-            color: #333;
+            display: none;
         }
 
-        .result strong {
-            font-size: 1.2em;
-            color: #007bff;
+        .result.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
         }
 
-        .result .callsign {
-            color: blue;
-            text-transform: uppercase;
+        .callsign {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .passcode {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .embed-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .embed-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .embed-code {
+            background: #F8F9FA;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
         }
 
         footer {
-            width: min(400px, 90%);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-top: 20px;
+            color: var(--text-secondary);
+            margin-top: auto;
+            padding: 2rem 0;
         }
 
         footer a {
-            color: #007bff;
+            color: var(--primary);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
         footer a:hover {
+            color: var(--primary-dark);
             text-decoration: underline;
         }
 
-        .license {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #555;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .embedding-tips {
-            margin-top: 30px;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            font-size: 16px;
-            width: min(400px, 90%);
-        }
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
 
-        .embedding-tips h3 {
-            color: #007bff;
-            margin-bottom: 15px;
-        }
+            .container {
+                padding: 1.5rem;
+            }
 
-        .embedding-tips pre {
-            background-color: #f4f4f4;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            overflow-x: auto;
-            word-wrap: break-word;
-            width: 100%;
-            box-sizing: border-box;
-        }
+            h1 {
+                font-size: 2rem;
+            }
 
-        .embedding-tips code {
-            font-family: monospace;
-            word-wrap: break-word;
-        }
-
-        /* Ensure iframe is responsive on mobile */
-        iframe {
-            max-width: 100%;
-            width: 100%;
-            height: auto;
+            .button-group {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2><a href="https://pass.hamradio.my">9M2PJU APRS Passcode Generator</a></h2>
+        <h1>APRS Passcode Generator</h1>
         <form id="form">
-            <label for="callsign">Callsign:</label>
-            <input type="text" name="callsign" id="callsign" required>
-            <input type="submit" value="Generate">
+            <div class="form-group">
+                <label for="callsign">Enter your callsign:</label>
+                <input type="text" id="callsign" name="callsign" placeholder="e.g. 9M2PJU" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="button-primary">Generate Passcode</button>
+                <button type="reset" class="button-secondary" id="reset" style="display: none;">Reset</button>
+            </div>
         </form>
-
         <div class="result" id="result"></div>
-        <input type="reset" id="reset" value="Reset" style="display: none;" onclick="window.location.reload();">
     </div>
 
-    <div class="embedding-tips">
-        <h3>How to Embed This Generator</h3>
-        <p>To embed the 9M2PJU APRS Passcode Generator on your website, use the following HTML code:</p>
-        <pre><code>&lt;iframe src="https://pass.hamradio.my" width="600" height="400" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
-        <p>Adjust the width and height as needed to fit your page layout.</p>
+    <div class="container">
+        <div class="embed-section">
+            <h2>Embed This Generator</h2>
+            <p>Add this generator to your website using the following code:</p>
+            <div style="position: relative;">
+                <pre class="embed-code">&lt;iframe src="https://pass.hamradio.my" width="650" height="500" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</pre>
+                <button id="copyButton" class="button-primary" style="position: absolute; top: 8px; right: 8px; padding: 8px 16px; font-size: 0.9rem;">Copy</button>
+            </div>
+            <div id="copyMessage" style="display: none; color: var(--secondary); margin-top: 8px; font-weight: 500;">✓ Copied to clipboard!</div>
+        </div>
     </div>
 
     <footer>
-        Made for you by <a href="https://hamradio.my" target="_blank">9M2PJU</a> 🥷
-        <br>
-        <br>
-        GitHub repository <a href="https://github.com/9M2PJU/aprs-passcode-generator" target="_blank">https://github.com/9M2PJU/aprs-passcode-generator</a>
-        <br>
-        <br>
-        This project is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0 License</a>.
+        <p>Created with ❤️ by <a href="https://hamradio.my" target="_blank">9M2PJU</a></p>
+        <p><a href="https://github.com/9M2PJU/aprs-passcode-generator" target="_blank">View on GitHub</a> • Licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0</a></p>
     </footer>
 
     <script>
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const embedCode = document.querySelector('.embed-code').textContent;
+            navigator.clipboard.writeText(embedCode).then(function() {
+                const copyMessage = document.getElementById('copyMessage');
+                copyMessage.style.display = 'block';
+                setTimeout(() => {
+                    copyMessage.style.display = 'none';
+                }, 2000);
+            });
+        });
+
         function aprsPasscode(callsign) {
             let realcall = callsign.split('-')[0].toUpperCase().substr(0, 10);
             let hash = 0x73e2;
@@ -196,15 +291,28 @@
             return hash & 0x7fff;
         }
 
-        document.getElementById("form").addEventListener("submit", function(event) {
+        const form = document.getElementById('form');
+        const result = document.getElementById('result');
+        const reset = document.getElementById('reset');
+
+        form.addEventListener('submit', function(event) {
             event.preventDefault();
-            let callsign = document.getElementById("callsign").value.trim();
+            const callsign = document.getElementById('callsign').value.trim();
             if (callsign) {
-                let passcode = aprsPasscode(callsign);
-                document.getElementById("result").innerHTML = 
-                    `Passcode for <strong class="callsign">${callsign.toUpperCase()}</strong>: <strong style="color: red;">${passcode}</strong>`;
-                document.getElementById("reset").style.display = "inline-block";
+                const passcode = aprsPasscode(callsign);
+                result.innerHTML = `
+                    <p>Passcode for <span class="callsign">${callsign.toUpperCase()}</span></p>
+                    <div class="passcode">${passcode}</div>
+                `;
+                result.classList.add('active');
+                reset.style.display = 'block';
             }
+        });
+
+        reset.addEventListener('click', function() {
+            result.classList.remove('active');
+            result.innerHTML = '';
+            this.style.display = 'none';
         });
     </script>
 </body>
