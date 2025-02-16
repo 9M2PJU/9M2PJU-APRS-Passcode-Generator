@@ -66,7 +66,7 @@ This project is licensed under the [AGPL 3.0 License](https://www.gnu.org/licens
 
 ## Thanks
 
-Made for you by [9M2PJU](https://hamradio.my) and [JollyJolli]([https://hamradio.my](https://github.com/JollyJolli))
+Made for you by [9M2PJU](https://hamradio.my) and [JollyJolli]((https://github.com/JollyJolli)
 
 ## How to Embed
 
