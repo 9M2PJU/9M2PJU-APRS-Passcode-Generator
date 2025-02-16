@@ -21,17 +21,17 @@ APRS (Automatic Packet Reporting System) is a digital communication system used 
 
 The APRS passcode is a unique identifier used to authenticate and secure these transmissions, ensuring that the data is properly linked to the correct callsign and preventing unauthorized access. The passcode is generated from the user's callsign using a specific algorithm, which involves:
 
-Stripping any SSID (e.g., "-1") from the callsign.
-Converting the callsign to uppercase.
-Using bitwise XOR operations and shifting the ASCII values of the callsign, along with a constant value 073, to create a 16-bit passcode.
+- Stripping any SSID (e.g., "-1") from the callsign.
+- Converting the callsign to uppercase.
+- Using bitwise XOR operations and shifting the ASCII values of the callsign, along with a constant value 073, to create a 16-bit passcode.
 
 This passcode is used in several key areas:
 
-Beacon Transmissions: It is embedded in APRS beacon messages, which broadcast location and other data, ensuring that the information is from an authorized source.
-APRS Stations: It helps digipeaters and iGate stations validate incoming packets, maintaining the integrity of the APRS network.
-Authentication: In global APRS networks like APRS-IS, the passcode verifies that a transmission is legitimate and secure.
-Access to Services: Some APRS-based services and custom gateways may require the passcode for authentication and secure communication.
-By ensuring secure and authenticated communication, the APRS passcode helps maintain the integrity of the APRS network and prevents misuse or unauthorized access.
+- Beacon Transmissions: It is embedded in APRS beacon messages, which broadcast location and other data, ensuring that the information is from an authorized source.
+- APRS Stations: It helps digipeaters and iGate stations validate incoming packets, maintaining the integrity of the APRS network.
+- Authentication: In global APRS networks like APRS-IS, the passcode verifies that a transmission is legitimate and secure.
+- Access to Services: Some APRS-based services and custom gateways may require the passcode for authentication and secure communication.
+- By ensuring secure and authenticated communication, the APRS passcode helps maintain the integrity of the APRS network and prevents misuse or unauthorized access.
 
 ## License
 
