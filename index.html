@@ -211,6 +211,37 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
         @media (max-width: 640px) {
             body {
                 padding: 1rem;
@@ -258,12 +289,83 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="embed-section">
+            <h2>How It Works</h2>
+            <div style="text-align: left; margin-top: 1rem;">
+                <p style="margin-bottom: 1rem;">The APRS passcode generator uses a standardized algorithm to create a unique verification code based on your amateur radio callsign. Let's break down the process using the callsign "9M2PJU" as an example:</p>
+                
+                <div style="background: var(--background); padding: 1.5rem; border-radius: var(--radius-md); margin: 1rem 0;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary);">1. ASCII Conversion</h3>
+                    <p style="margin-bottom: 0.5rem;">First, each character is converted to its ASCII value:</p>
+                    <div style="font-family: 'Monaco', 'Consolas', monospace; background: var(--surface); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                        9 → 57
+                        M → 77
+                        2 → 50
+                        P → 80
+                        J → 74
+                        U → 85
+                    </div>
+                </div>
+
+                <div style="background: var(--background); padding: 1.5rem; border-radius: var(--radius-md); margin: 1rem 0;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary);">2. Initial Hash Value</h3>
+                    <p>We start with a special hash value: <code style="background: var(--surface); padding: 0.2rem 0.4rem; border-radius: var(--radius-sm);">0x73E2</code> (29666 in decimal)</p>
+                    <p style="margin-top: 0.5rem;"><em>Fun fact: The value 73 is a CW (Morse code) abbreviation for "best regards" in amateur radio tradition!</em></p>
+                </div>
+
+                <div style="background: var(--background); padding: 1.5rem; border-radius: var(--radius-md); margin: 1rem 0;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary);">3. Bitwise Operations</h3>
+                    <p style="margin-bottom: 0.5rem;">The algorithm performs bitwise XOR operations on each character:</p>
+                    <div style="font-family: 'Monaco', 'Consolas', monospace; background: var(--surface); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                        1. hash ⊕ (ASCII × 256) for each character
+                        2. Result is masked with 0x7FFF (32767)
+                    </div>
+                </div>
+
+                <div style="background: var(--background); padding: 1.5rem; border-radius: var(--radius-md); margin: 1rem 0;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary);">4. Final Result</h3>
+                    <p>The final passcode will be a number between 0 and 32767.</p>
+                    <p style="margin-top: 0.5rem;">This passcode remains constant for your callsign and is used for:</p>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin: 0.5rem 0;">🔑 Authentication in APRS networks</li>
+                        <li style="margin: 0.5rem 0;">📡 Configuring APRS devices</li>
+                        <li style="margin: 0.5rem 0;">🌐 Accessing APRS-IS services</li>
+                        <li style="margin: 0.5rem 0;">🔒 Validating packet transmissions</li>
+                    </ul>
+                </div>
+            </div>
+                <p style="margin-top: 1rem;">This passcode is required for APRS authentication and remains constant for your callsign. It's used when configuring APRS devices or software to ensure proper authentication in the APRS network.</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>Created with ❤️ by <a href="https://hamradio.my" target="_blank">9M2PJU</a></p>
         <p><a href="https://github.com/9M2PJU/aprs-passcode-generator" target="_blank">View on GitHub</a> • Licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0</a></p>
     </footer>
 
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
     <script>
+        // Back to top button functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         document.getElementById('copyButton').addEventListener('click', function() {
             const embedCode = document.querySelector('.embed-code').textContent;
             navigator.clipboard.writeText(embedCode).then(function() {
