@@ -1,6 +1,6 @@
 # 9M2PJU APRS Passcode Generator
 
-This is a simple web-based tool to generate APRS passcodes based on the entered callsign. The passcode is generated using the APRS passcode algorithm, and the result is displayed in a user-friendly format. This tool is available online and can be accessed on [GitHub Pages](https://9m2pju.github.io/aprs-passcode-generator/).
+This is a simple web-based tool to generate APRS passcodes based on the entered callsign. The passcode is generated using the APRS passcode algorithm, and the result is displayed in a user-friendly format. This tool is available online and can be accessed on [pass.hamradio.my](https://pass.hamradio.my).
 
 ## Features
 
@@ -39,7 +39,7 @@ This project is licensed under the **AGPL 3.0 License**. See the [LICENSE](https
 
 ## How to Use
 
-1. Open the web page: [9M2PJU APRS Passcode Generator](https://9m2pju.github.io/aprs-passcode-generator/).
+1. Open the web page: [9M2PJU APRS Passcode Generator](https://pass.hamradio.my).
 2. Enter your callsign in the input field.
 3. Click the "Generate" button to get your APRS passcode.
 4. The passcode will be displayed below the form in red, and your callsign will be displayed in blue.
