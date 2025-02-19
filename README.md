@@ -6,9 +6,7 @@
 
 > A lightweight, user-friendly web tool for generating APRS passcodes from amateur radio callsigns. Try it live at [pass.hamradio.my](https://pass.hamradio.my)!
 
-<p align="center">
-  <img src="/api/placeholder/800/400" alt="APRS Passcode Generator Screenshot" />
-</p>
+
 
 ## 🌟 Features
 
