@@ -108,7 +108,7 @@ This project is licensed under the GNU Affero General Public License v3.0 - see 
 ## 📬 Contact
 
 - Website: [hamradio.my](https://hamradio.my)
-- GitHub: [@JollyJolli](https://github.com/JollyJolli)
+- GitHub: [@JollyJolli](https://github.com/9M2PJU)
 
 ---
 
