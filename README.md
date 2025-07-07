@@ -17,6 +17,7 @@
   - Callsigns displayed in blue with uppercase formatting
   - Passcodes highlighted in red for clarity
   - Real-time validation and error checking
+- **9M2PJU APRS Passcode Generator Android App**: Download [here](https://github.com/9M2PJU/9M2PJU-APRS-Passcode-Generator/raw/refs/heads/main/9M2PJU-APRS-Passcode-Generator.apk)
 
 ## 🚀 Quick Start
 
