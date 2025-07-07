@@ -1,4 +1,4 @@
-# 📡 APRS Passcode Generator
+# 📡 9M2PJU APRS Passcode Generator
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fpass.hamradio.my)](https://pass.hamradio.my)
