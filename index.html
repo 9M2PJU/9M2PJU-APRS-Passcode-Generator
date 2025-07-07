@@ -244,19 +244,53 @@
 
         @media (max-width: 640px) {
             body {
-                padding: 1rem;
+                padding: 1rem; /* Keep body padding simple */
             }
 
             .container {
-                padding: 1.5rem;
+                padding: 1.25rem; /* Slightly reduce padding for more content space */
+                /* The body's flex gap will handle spacing between containers */
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 1.875rem; /* Approx 30px if 1rem=16px, reduced from 2rem */
+                margin-bottom: 1.5rem; /* Ensure consistent spacing */
+            }
+
+            .form-group {
+                margin-bottom: 1.25rem; /* Slightly reduce margin */
+            }
+
+            input[type="text"], button {
+                font-size: 1rem; /* Standardize font size for inputs and buttons on mobile */
+                padding: 0.875rem; /* Adjust padding accordingly */
             }
 
             .button-group {
                 flex-direction: column;
+                gap: 0.75rem; /* Reduce gap for stacked buttons */
+            }
+
+            .result {
+                padding: 1.25rem; /* Adjust padding */
+                margin-top: 1.5rem; /* Adjust margin */
+            }
+
+            .result .passcode {
+                font-size: 1.375rem; /* Slightly reduce passcode font size */
+            }
+
+            .embed-section h2 {
+                font-size: 1.3rem; /* Adjust embed section header */
+            }
+
+            .embed-code {
+                padding: 1rem; /* Reduce padding for the code block */
+                font-size: 0.85rem; /* Make embed code font a bit smaller */
+            }
+
+            footer {
+                padding: 1.5rem 0; /* Adjust footer padding */
             }
         }
     </style>
@@ -284,7 +318,7 @@
         <p>Add this generator to your website using the following code:</p>
         <div style="position: relative;">
             <pre class="embed-code">&lt;iframe src="https://pass.hamradio.my" width="650" height="500" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</pre>
-            <button id="copyButton" class="button-primary" style="position: absolute; top: 8px; right: 8px; padding: 8px 16px; font-size: 0.9rem;">Copy</button>
+            <button id="copyButton" class="button-primary" style="position: absolute; top: 8px; right: 8px; padding: 12px 16px; font-size: 0.9rem;">Copy</button>
         </div>
         <div id="copyMessage" style="display: none; color: var(--secondary); margin-top: 8px; font-weight: 500;">✓ Copied to clipboard!</div>
         <p style="margin-top: 16px;">
