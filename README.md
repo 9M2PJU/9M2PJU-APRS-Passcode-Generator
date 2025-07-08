@@ -1,34 +1,37 @@
 # 📡 9M2PJU APRS Passcode Generator
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fpass.hamradio.my)](https://pass.hamradio.my)
-[![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red.svg)](https://hamradio.my)
+[![License](https://img.shields.io/github/license/9M2PJU/9M2PJU-APRS-Passcode-Generator?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
+[![Live Site](https://img.shields.io/website?url=https%3A%2F%2Fpass.hamradio.my&style=for-the-badge)](https://pass.hamradio.my)
+[![Made With ❤️](https://img.shields.io/badge/Made%20With-%E2%9D%A4-red?style=for-the-badge)](https://hamradio.my)
+[![Android App](https://img.shields.io/badge/Android-Download-green?style=for-the-badge&logo=android)](https://github.com/9M2PJU/9M2PJU-APRS-Passcode-Generator/raw/refs/heads/main/9M2PJU-APRS-Passcode-Generator.apk)
 
-> A lightweight, user-friendly web tool for generating APRS passcodes from amateur radio callsigns. Try it live at [pass.hamradio.my](https://pass.hamradio.my)!
+> ⚡ A fast, friendly web tool to generate APRS-IS passcodes from amateur radio callsigns.  
+> Live at 🌍 [pass.hamradio.my](https://pass.hamradio.my)
 
-
+---
 
 ## 🌟 Features
 
-- **Instant Passcode Generation**: Generate APRS passcodes from any valid callsign
-- **User-Friendly Interface**: Clean, modern design with intuitive controls
-- **Mobile Responsive**: Works perfectly on all devices
-- **Visual Feedback**: 
-  - Callsigns displayed in blue with uppercase formatting
-  - Passcodes highlighted in red for clarity
-  - Real-time validation and error checking
-- **9M2PJU APRS Passcode Generator Android App**: Download [here](https://github.com/9M2PJU/9M2PJU-APRS-Passcode-Generator/raw/refs/heads/main/9M2PJU-APRS-Passcode-Generator.apk)
+- ⚡ Instant APRS passcode generation  
+- 📱 Responsive layout for mobile & desktop  
+- 🧠 Real-time validation with visual feedback  
+- 🔵 Callsigns styled in **blue**, **UPPERCASE**  
+- 🔴 Passcodes shown in **bold red**  
+- 📲 Offline Android app included  
 
-## 🚀 Quick Start
+---
 
-1. Visit [pass.hamradio.my](https://pass.hamradio.my)
-2. Enter your amateur radio callsign
-3. Click "Generate"
-4. Your APRS passcode will be instantly displayed
+## 🚀 Get Started
 
-### 📌 Embed on Your Site
+🔗 Visit: [https://pass.hamradio.my](https://pass.hamradio.my)
 
-Add this responsive iframe to your website:
+1. Type your **valid callsign**
+2. Click **Generate**
+3. View your **APRS passcode** instantly
+
+---
+
+## 🧩 Embed in Your Website
 
 ```html
 <iframe 
@@ -38,81 +41,99 @@ Add this responsive iframe to your website:
 ></iframe>
 ```
 
-## 🔧 Technical Details
+---
 
-### What is APRS?
+## 📡 What is APRS?
 
-APRS (Automatic Packet Reporting System) is a digital communications protocol for amateur radio. It enables real-time sharing of:
-- Geographic positions
-- Weather station data
-- Short messages
-- Other data
+[APRS](https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System) (Automatic Packet Reporting System) is a digital radio protocol used in [amateur radio](https://en.wikipedia.org/wiki/Amateur_radio) for:
 
-### Passcode Algorithm
+- 🔍 Position tracking  
+- 🌦️ Weather telemetry  
+- 💬 Messaging & bulletins  
+- 🔁 Repeater beacons & more  
 
-The APRS passcode is generated through:
-1. SSID removal (e.g., "-1" from callsign)
-2. Uppercase conversion
-3. Bitwise operations:
-   - XOR operations
-   - Bit shifting of ASCII values
-   - Combination with constant 0x73
-4. Generation of 16-bit unique identifier
+---
 
-### Use Cases
+## 🔐 How Passcodes Work
 
-- ✅ Beacon Authentication
-- ✅ APRS-IS Network Access
-- ✅ Digipeater Validation
-- ✅ iGate Configuration
-- ✅ Custom APRS Services
+APRS-IS requires a numeric **passcode** for authentication.  
+This tool uses the standard algorithm:
 
-## 💻 Development
+1. Strip SSID (`-1`, `-7`, etc.)  
+2. Convert callsign to uppercase  
+3. Bitwise operations per character:  
+   - XOR with constants  
+   - Bit shifts  
+   - Merge with `0x73`  
+4. Return 16-bit APRS passcode  
 
-### Prerequisites
+Example:  
+- Input: `9W2XYZ-9`  
+- Processed: `9W2XYZ`  
+- Output: `passcode = 56789` *(example)*
 
-- Basic knowledge of:
-  - HTML5
-  - CSS3
-  - JavaScript (ES6+)
-- Git for version control
-- GitHub account for contributions
+---
 
-### Contributing
+## 🛠️ Developer Guide
 
-We welcome contributions! Here's how:
+### 🧰 Requirements
 
-1. Fork the repository
-2. Create your feature branch:
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. Open a Pull Request
+- HTML, CSS, JavaScript (ES6+)  
+- Basic Git knowledge  
+
+### 🔧 Setup
+
+```bash
+git clone https://github.com/9M2PJU/9M2PJU-APRS-Passcode-Generator.git
+cd 9M2PJU-APRS-Passcode-Generator
+open index.html
+```
+
+---
+
+## 🤝 Contribute
+
+All contributions welcome!
+
+```bash
+# Step 1: Fork
+git checkout -b feature/NewFeature
+
+# Step 2: Commit changes
+git commit -m "Add: NewFeature"
+
+# Step 3: Push to GitHub
+git push origin feature/NewFeature
+
+# Step 4: Open a Pull Request
+```
+
+---
+
+## 📲 Android App
+
+📥 [Download APK](https://github.com/9M2PJU/9M2PJU-APRS-Passcode-Generator/raw/refs/heads/main/9M2PJU-APRS-Passcode-Generator.apk)
+
+- Offline use supported  
+- Fast & lightweight  
+
+---
 
 ## 📄 License
 
-This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](https://www.gnu.org/licenses/agpl-3.0.html) file for details.
+Released under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html)
 
-## 🙏 Acknowledgments
+Free to use, improve, and redistribute with attribution.
 
-- Created with ❤️ by [9M2PJU](https://hamradio.my)
-- Special thanks to [JollyJolli](https://github.com/JollyJolli) for contributions
+---
 
-## 📬 Contact
+## 🙏 Credits
 
-- Website: [hamradio.my](https://hamradio.my)
-- GitHub: [@9M2PJU](https://github.com/9M2PJU)
+- Built with ❤️ by [9M2PJU](https://hamradio.my)  
+- Thanks to [@JollyJolli](https://github.com/JollyJolli) for early support  
 
 ---
 
 <p align="center">
-  Made with ❤️ for the Amateur Radio Community
+  🌐 Empowering the Amateur Radio Community — One Call at a Time
 </p>
