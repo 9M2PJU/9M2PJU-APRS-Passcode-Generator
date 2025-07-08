@@ -17,7 +17,7 @@
 - 🧠 Real-time validation with visual feedback  
 - 🔵 Callsigns styled in **blue**, **UPPERCASE**  
 - 🔴 Passcodes shown in **bold red**  
-- 📲 Offline Android app included  
+- 📲 Android app included  
 
 ---
 
