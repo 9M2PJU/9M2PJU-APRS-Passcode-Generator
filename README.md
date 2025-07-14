@@ -1,6 +1,5 @@
 # 📡 9M2PJU APRS Passcode Generator
 
-[![License](https://img.shields.io/github/license/9M2PJU/9M2PJU-APRS-Passcode-Generator?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
 [![Live Site](https://img.shields.io/website?url=https%3A%2F%2Fpass.hamradio.my&style=for-the-badge)](https://pass.hamradio.my)
 [![Made With ❤️](https://img.shields.io/badge/Made%20With-%E2%9D%A4-red?style=for-the-badge)](https://hamradio.my)
 [![Android App](https://img.shields.io/badge/Android-Download-green?style=for-the-badge&logo=android)](https://github.com/9M2PJU/9M2PJU-APRS-Passcode-Generator/raw/refs/heads/main/9M2PJU-APRS-Passcode-Generator.apk)
@@ -121,7 +120,7 @@ git push origin feature/NewFeature
 
 ## 📄 License
 
-Released under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html)
+Released under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
 
 Free to use, improve, and redistribute with attribution.
 
